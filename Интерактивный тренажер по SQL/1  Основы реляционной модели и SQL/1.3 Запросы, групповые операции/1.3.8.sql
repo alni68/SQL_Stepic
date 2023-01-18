@@ -3,9 +3,9 @@
 
 Решение:
 SELECT author,
-       sum(price*amount) AS Стоимость
+       SUM(price*amount) AS Стоимость
 FROM book
 WHERE title <>'Идиот' or 'Белая гвардия'
 GROUP BY author 
-HAVING sum(price*amount)>5000
+HAVING SUM(price*amount)>5000
 ORDER BY Стоимость DESC;
