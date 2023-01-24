@@ -11,13 +11,13 @@
 - отсортировать по цене по возрастанию, затем по Спросу от высокого к низкому, а затем по названию книги в алфавитном порядке.
 
 Решение:
-SELECT  CONCAT("Графоман и ", author) as Автор, 
-        CONCAT(title, ". Краткое содержание.") as Название, 
-        if(price*0.4>=250, 250*1, price*0.4) as Цена, 
-        if(amount<=3, 'высокий', 
-        if(amount>3 and amount<=10, 
-        'средний', 'низкий')) as Спрос, 
-        if(amount<=2, 'очень мало', 
-        if(amount>2 and amount<=14, 'в наличии', 'много')) as Наличие   
+SELECT  CONCAT("Графоман и ", author) AS Автор, 
+        CONCAT(title, ". Краткое содержание.") AS Название, 
+        IF(price*0.4>=250, 250*1, price*0.4) AS Цена, 
+        IF(amount<=3, 'высокий', 
+        IF(amount>3 AND amount<=10, 
+        'средний', 'низкий')) AS Спрос, 
+        IF(amount<=2, 'очень мало', 
+        IF(amount>2 AND amount<=14, 'в наличии', 'много')) AS Наличие   
 FROM book
 ORDER BY Цена, amount, title ASC;
